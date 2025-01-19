@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.example.apppost.data.model.Post
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PostItem(
@@ -38,6 +39,7 @@ fun PostItem(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = post.title, style = MaterialTheme.typography.body1)
+
             Spacer(modifier = Modifier.height(8.dp))
 
             Row {
@@ -50,8 +52,8 @@ fun PostItem(
                 }
 
                 Button(
-                    onClick = {onEdit},
-                    colors = ButtonDefaults.buttonColors(MaterialTheme.colors.error),
+                    onClick = {onEdit(post)},
+                    colors = ButtonDefaults.buttonColors(MaterialTheme.colors.onPrimary),
                     modifier = Modifier.padding(8.dp)
                 ) {
                     Text(text = "Editar")
@@ -82,4 +84,20 @@ fun PostItem(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun PostItemPreview() {
+    val post = Post(id = 1, title = "Testando", content = "1, 2, 3 testando", owner_id = 1)
+
+    PostItem(
+        post = post,
+        onDelete = { id ->
+            println("Post com ID $id excluído")
+        },
+        onEdit = { updatedPost ->
+            println("Editar post: $updatedPost")
+        }
+    )
 }
