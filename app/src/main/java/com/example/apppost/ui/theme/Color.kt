@@ -2,10 +2,10 @@ package com.example.apppost.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val OrangePrimary = Color(0xFFFF9800)  // Cor base laranja (da logo)
+val OrangeDark = Color(0xFFFB8C00)     // Versão mais escura
+val OrangeLight = Color(0xFFFFCC80)    // Versão mais clara
+val White = Color(0xFFFFFFFF)          // Branco para contrastar
+val GrayBackground = Color(0xFFF2F2F2) // Cinza claro para fundos
+val BlackText = Color(0xFF212121)      // Preto para textos principais
+val GrayText = Color(0xFF757575)       // Cinza para textos secundários

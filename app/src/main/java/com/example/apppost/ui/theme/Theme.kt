@@ -1,58 +1,31 @@
 package com.example.apppost.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.shapes
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val LightColorPalette = lightColors(
+    primary = Color(0xFFFF9800), // Laranja para a TopBar e BottomBar
+    primaryVariant = Color(0xFFFFC947), // Variante do laranja
+    secondary = Color(0xFF6200EE), // Roxo para destaques
+    background = Color(0xFFF2F2F2), // Cinza claro para o fundo
+    surface = Color.White, // Branco para cartões e botões
+    onPrimary = Color.White, // Branco para texto sobre a cor primária
+    onSecondary = Color.White, // Branco para texto sobre a cor secundária
+    onBackground = Color.Black, // Preto para textos em fundo claro
+    onSurface = Color.Black // Preto para textos em cartões e botões
 )
 
 @Composable
-fun AppPostTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
+fun AppPostTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
+        colors = LightColorPalette,
+        typography = typography,
+        shapes = shapes,
         content = content
     )
 }

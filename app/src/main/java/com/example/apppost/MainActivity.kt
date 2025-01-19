@@ -4,14 +4,23 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.example.apppost.ui.screens.PostScreen
 import com.example.apppost.ui.screens.UserScreen
+import com.example.apppost.ui.theme.AppPostTheme
 
 
 // Classe principal da atividade
@@ -19,7 +28,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreen() // Configura a tela principal da aplicação
+            AppPostTheme {
+                MainScreen() // Configura a tela principal da aplicação
+            }
+
         }
     }
 }
@@ -32,10 +44,21 @@ fun MainScreen() {
 
     // Scaffold é um layout que fornece uma estrutura básica para a tela, com barra superior e inferior
     Scaffold(
-        // Barra superior com título
+        // Barra superior com título e ícone
         topBar = {
             TopAppBar(
-                title = { Text("PostAPP") }, // Título exibido na barra superior
+                title = {
+                    Row ( verticalAlignment = Alignment.CenterVertically ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.icon512),
+                            contentDescription = "App Logo",
+                            modifier = Modifier
+                                .size(50.dp)
+                                .padding(end = 10.dp)
+                        )
+                        Text("PostAPP")
+                    }
+                },
                 backgroundColor = MaterialTheme.colors.primary, // Cor de fundo
                 contentColor = Color.White // Cor do texto e ícones
             )
