@@ -26,6 +26,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.apppost.ui.viewModel.PostViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun UserScreen(viewModel: PostViewModel = viewModel()) {
@@ -98,4 +99,10 @@ fun UserScreen(viewModel: PostViewModel = viewModel()) {
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun UserScreenPreview() {
+    UserScreen()
 }
