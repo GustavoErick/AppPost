@@ -39,6 +39,7 @@ fun PostItem(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = post.title, style = MaterialTheme.typography.body1)
+            Text(text = post.content, style = MaterialTheme.typography.body2)
 
             Spacer(modifier = Modifier.height(8.dp))
 
